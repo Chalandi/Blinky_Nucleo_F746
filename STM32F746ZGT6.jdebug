@@ -1,0 +1,35 @@
+/*********************************************************************
+*                 (c) SEGGER Microcontroller GmbH                    *
+*                      The Embedded Experts                          *
+*                         www.segger.com                             *
+**********************************************************************
+
+File          : STM32F746ZGT6.jdebug
+Created       : 21 Nov 2022 23:58
+Ozone Version : V3.28a
+*/
+
+/*********************************************************************
+*
+*       OnProjectLoad
+*
+* Function description
+*   Project load routine. Required.
+*
+**********************************************************************
+*/
+void OnProjectLoad (void) {
+  //
+  // Dialog-generated settings
+  //
+  Project.SetDevice ("STM32F746ZG");
+  Project.SetTargetIF ("SWD");
+  Project.SetTIFSpeed ("4 MHz");
+  Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M7F.svd");
+  Project.AddSvdFile ("$(ProjectDir)/stm32f7x6.svd");
+  File.Open("$(ProjectDir)/Output/Blinky_Nucleo_F746.elf");
+  //
+  // User settings
+  //
+
+}
